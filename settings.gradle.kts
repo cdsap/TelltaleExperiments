@@ -36,6 +36,14 @@ develocity {
     }
 }
 
+buildCache {
+    remote<HttpBuildCache> {
+        url = uri(System.getenv("CI_URL_CACHE_NODE"))
+        isPush = System.getenv("CI").toBoolean()
+        isAllowInsecureProtocol = true
+    }
+}
+
 dependencyResolutionManagement {
     repositoriesMode = RepositoriesMode.FAIL_ON_PROJECT_REPOS
     repositories {
