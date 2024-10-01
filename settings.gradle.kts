@@ -25,6 +25,7 @@ pluginManagement {
 
 plugins {
     id("com.gradle.develocity") version "3.18.1"
+    id("com.ebay.metrics-for-develocity") version "1.0.0"
 }
 
 develocity {
@@ -33,14 +34,6 @@ develocity {
     buildScan {
         uploadInBackground.set(false)
         publishing { true}
-    }
-}
-
-buildCache {
-    remote<HttpBuildCache> {
-        url = uri(System.getenv("CI_URL_CACHE_NODE"))
-        isPush = System.getenv("CI").toBoolean()
-        isAllowInsecureProtocol = true
     }
 }
 

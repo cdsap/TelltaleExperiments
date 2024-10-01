@@ -50,3 +50,11 @@ plugins {
     alias(libs.plugins.room) apply false
     alias(libs.plugins.module.graph) apply true // Plugin applied to allow module graph generation
 }
+
+
+metricsForDevelocity {
+    zoneId.set("UTC")
+    develocityServerUrl.set("https://ge.solutions-team.gradle.com/")
+    develocityQueryFilter.set("tag:CI")
+    develocityMaxConcurrency.set(10)
+}
